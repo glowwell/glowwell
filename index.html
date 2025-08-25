@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GlowWell | Beauty &amp; Wellness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        :root {
+            --white: #ffffff;
+            --beige: #f8f4f0;
+            --light-pink: #f9e6e6;
+            --soft-green: #e6f4e6;
+            --dark-text: #333333;
+            --light-text: #666666;
+            --accent-pink: #e8b4b8;
+            --accent-green: #8db596;
+            --gradient: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent-green) 100%);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-text);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            color: var(--accent-pink);
+        }
+        
+        .logo span {
+            color: var(--accent-green);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-pink);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: var(--beige);
+            padding: 80px 0;
+            text-align: center;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8f4f0"/><path d="M0,0 L100,100" stroke="%23e8b4b8" stroke-width="2" opacity="0.2"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-text);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* Featured Products */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .product-img {
+            height: 200px;
+            width: 100%;
+            background-color: var(--light-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-img i {
+            font-size: 60px;
+            color: var(--accent-pink);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-desc {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .product-rating {
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+        
+        .btn-view {
+            display: block;
+            text-align: center;
+            background: var(--gradient);
+            color: white;
+            padding: 10px 0;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .btn-view:hover {
+            opacity: 0.9;
+        }
+        
+        /* Categories Section */
+        .categories {
+            background-color: var(--soft-green);
+            padding: 60px 0;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .category-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            padding: 30px 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-icon {
+            font-size: 40px;
+            color: var(--accent-green);
+            margin-bottom: 15px;
+        }
+        
+        .category-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 60px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--light-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--accent-pink);
+            font-size: 20px;
+        }
+        
+        .author-name {
+            font-weight: 600;
+        }
+        
+        /* Blog Section */
+        .blog {
+            background-color: var(--beige);
+            padding: 60px 0;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .blog-img {
+            height: 200px;
+            background-color: var(--light-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .blog-img i {
+            font-size: 40px;
+            color: var(--accent-pink);
+        }
+        
+        .blog-content {
+            padding: 20px;
+        }
+        
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .blog-excerpt {
+            color: var(--light-text);
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            color: var(--accent-pink);
+            font-weight: 500;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 60px 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .faq-question {
+            background: var(--white);
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            background: var(--beige);
+            padding: 20px;
+            display: none;
+        }
+        
+        .faq-active .faq-answer {
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-pink);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background: var(--accent-pink);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: var(--white);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            animation: modalFade 0.3s;
+        }
+        
+        @keyframes modalFade {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--light-text);
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-pink);
+        }
+        
+        .modal-text {
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .locker-form {
+            margin: 20px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Glow<span>Well</span></a>
+            <nav>
+                <ul id="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Skincare</a></li>
+                    <li><a href="#">Makeup</a></li>
+                    <li><a href="#">Wellness</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <div class="mobile-menu-btn" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="container">
+            <h1>Discover Your Natural Beauty</h1>
+            <p>Explore our curated collection of premium skincare, makeup, and wellness products that will help you reveal your most radiant self.</p>
+            <a href="#" class="btn">Unlock Exclusive Beauty Deals</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="container">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <!-- REPLACE WITH YOUR IMAGE URL -->
+                    <img src="https://via.placeholder.com/300x200?text=Hyaluronic+Acid+Serum" alt="Hyaluronic Acid Serum" />
+                    <!-- <i class="fas fa-spa"></i> -->
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Hyaluronic Acid Serum</h3>
+                    <p class="product-desc">Deeply hydrating serum for plump, dewy skin</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn-view unlock-btn">Unlock Best Deal</a>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <!-- REPLACE WITH YOUR IMAGE URL -->
+                    <img src="https://via.placeholder.com/300x200?text=Vitamin+C+Brightening+Cream" alt="Vitamin C Brightening Cream" />
+                    <!-- <i class="fas fa-pump-soap"></i> -->
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Vitamin C Brightening Cream</h3>
+                    <p class="product-desc">Illuminate your complexion with this antioxidant-rich formula</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <a href="#" class="btn-view unlock-btn">Unlock Best Deal</a>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <!-- REPLACE WITH YOUR IMAGE URL -->
+                    <img src="https://via.placeholder.com/300x200?text=Rose+Quartz+Facial+Roller" alt="Rose Quartz Facial Roller" />
+                    <!-- <i class="fas fa-spa"></i> -->
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Rose Quartz Facial Roller</h3>
+                    <p class="product-desc">Reduce puffiness and enhance product absorption</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <a href="#" class="btn-view unlock-btn">Unlock Best Deal</a>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <!-- REPLACE WITH YOUR IMAGE URL -->
+                    <img src="https://via.placeholder.com/300x200?text=Silk+Foundation" alt="Silk Foundation" />
+                    <!-- <i class="fas fa-paint-brush"></i> -->
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Silk Foundation</h3>
+                    <p class="product-desc">Weightless coverage with a natural finish</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn-view unlock-btn">Unlock Best Deal</a>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <!-- REPLACE WITH YOUR IMAGE URL -->
+                    <img src="https://via.placeholder.com/300x200?text=Green+Tea+Antioxidant+Mask" alt="Green Tea Antioxidant Mask" />
+                    <!-- <i class="fas fa-leaf"></i> -->
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Green Tea Antioxidant Mask</h3>
+                    <p class="product-desc">Detoxify and refresh tired skin</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <a href="#" class="btn-view unlock-btn">Unlock Best Deal</a>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <!-- REPLACE WITH YOUR IMAGE URL -->
+                    <img src="https://via.placeholder.com/300x200?text=Hydrating+Mist+Toner" alt="Hydrating Mist Toner" />
+                    <!-- <i class="fas fa-wind"></i> -->
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Hydrating Mist Toner</h3>
+                    <p class="product-desc">Refresh and balance your skin anytime</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <a href="#" class="btn-view unlock-btn">Unlock Best Deal</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Best-Selling Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="category-title">Skincare</h3>
+                    <p>Cleansers, serums, moisturizers and treatments for every skin type</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="category-title">Makeup</h3>
+                    <p>High-quality cosmetics for natural and dramatic looks</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="category-title">Health & Wellness</h3>
+                    <p>Supplements and self-care products for overall wellbeing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Customer Reviews</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The Hyaluronic Acid Serum completely transformed my dry skin. I've never received so many compliments on my complexion!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <div class="author-name">Sarah M.</div>
+                            <div class="author-location">New York, USA</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I was skeptical about the content locker at first, but the exclusive deal I unlocked was absolutely worth it. Saved over 40%!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <div class="author-name">James L.</div>
+                            <div class="author-location">London, UK</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The Vitamin C Brightening Cream faded my dark spots in just 3 weeks. This is now my holy grail product that I can't live without."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <div class="author-name">Mia K.</div>
+                            <div class="author-location">Toronto, Canada</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog">
+        <div class="container">
+            <h2 class="section-title">Wellness Tips</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <!-- REPLACE WITH YOUR IMAGE URL -->
+                        <img src="https://via.placeholder.com/400x250?text=Morning+Habits" alt="5 Morning Habits for Glowing Skin" />
+                        <!-- <i class="fas fa-seedling"></i> -->
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">5 Morning Habits for Glowing Skin</h3>
+                        <p class="blog-excerpt">Discover simple routines that will transform your skin health and give you that natural glow everyone desires.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <!-- REPLACE WITH YOUR IMAGE URL -->
+                        <img src="https://via.placeholder.com/400x250?text=Nutrition+for+Skin" alt="Nutrition for Healthy Skin" />
+                        <!-- <i class="fas fa-apple-alt"></i> -->
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Nutrition for Healthy Skin</h3>
+                        <p class="blog-excerpt">Learn which foods can help combat acne, reduce inflammation, and keep your skin looking youthful and radiant.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <!-- REPLACE WITH YOUR IMAGE URL -->
+                        <img src="https://via.placeholder.com/400x250?text=Sleep+Beauty" alt="The Sleep-Beauty Connection" />
+                        <!-- <i class="fas fa-bed"></i> -->
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">The Sleep-Beauty Connection</h3>
+                        <p class="blog-excerpt">Find out how quality sleep affects your appearance and get tips for improving your sleep hygiene tonight.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Is this site safe and secure? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Yes, absolutely. We use industry-standard SSL encryption to protect your data and ensure secure browsing. Your privacy is our top priority.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I unlock the exclusive offers? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Simply click on any "Unlock Best Deal" or similar button, complete the quick verification process, and you'll gain immediate access to our exclusive pricing.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    What makes your products different? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    We carefully curate our collection from premium brands that prioritize clean ingredients, ethical sourcing, and proven results. Many products are exclusive to our platform.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    Do you offer international shipping? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Yes, we ship to over 50 countries worldwide. Shipping costs and delivery times vary depending on your location.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    What is your return policy? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    We offer a 30-day money-back guarantee on all unopened products. If you're not satisfied with your purchase, please contact our customer service team.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>GlowWell</h3>
+                    <p>Your destination for premium beauty, skincare, and wellness products that deliver real results.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> support@glowwell.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (800) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Beauty St, Cosmetic City</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 GlowWell. All rights reserved.</p>
+                <p>Disclaimer: Results may vary from person to person. These statements have not been evaluated by the FDA.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Content Locker Modal -->
+    <div class="modal" id="lockerModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Unlock Exclusive Offer</h2>
+            <p class="modal-text">Complete this quick verification to access your special pricing.</p>
+            
+            <div class="locker-form">
+                <div class="form-group">
+                    <input type="email" placeholder="Enter your email" required />
+                </div>
+                <button class="btn">Verify & Unlock Deal</button>
+            </div>
+            
+            <p class="modal-text">By completing this, you agree to our Terms and Privacy Policy.</p>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('menu').classList.toggle('show');
+        });
+        
+        // FAQ Toggle
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('faq-active');
+            });
+        });
+        
+        // Content Locker Modal
+        const unlockButtons = document.querySelectorAll('.unlock-btn');
+        const modal = document.getElementById('lockerModal');
+        const closeModal = document.querySelector('.close-modal');
+        
+        unlockButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.style.display = 'flex';
+            });
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Simple animation on scroll
+        const fadeElems = document.querySelectorAll('.product-card, .category-card, .testimonial-card, .blog-card');
+        
+        function checkFade() {
+            fadeElems.forEach(elem => {
+                const elemTop = elem.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elemTop < windowHeight - 100) {
+                    elem.style.opacity = 1;
+                    elem.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Initialize elements for animation
+        fadeElems.forEach(elem => {
+            elem.style.opacity = 0;
+            elem.style.transform = 'translateY(20px)';
+            elem.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        window.addEventListener('scroll', checkFade);
+        window.addEventListener('load', checkFade);
+    </script>
+</body>
+</html>
